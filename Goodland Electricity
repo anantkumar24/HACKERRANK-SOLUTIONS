@@ -1,0 +1,17 @@
+def pylons(k, arr):
+    
+    n = len(arr)
+    i = 0 
+    plants = 0
+    
+    while i < n:
+        
+        loc = min(i + k - 1, n - 1) 
+        while loc >= i - k + 1 and loc >= 0 and arr[loc] == 0:
+            loc -= 1
+        if loc < i - k + 1 or loc < 0:
+            return -1  
+        plants += 1
+        i = loc + k 
+    
+    return plants
