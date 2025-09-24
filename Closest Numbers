@@ -1,0 +1,13 @@
+def closestNumbers(arr):
+   
+    p=[]
+    md=9999999
+    arr.sort()
+    for i in range(1,len(arr)):
+        d=abs(arr[i-1]-arr[i])
+        if d<md:
+            md=d
+            p=[arr[i-1],arr[i]]
+        elif d==md:
+            p.extend([arr[i-1],arr[i]])
+    return p
