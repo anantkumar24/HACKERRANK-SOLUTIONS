@@ -1,0 +1,13 @@
+def toys(w):
+   
+    w.sort()
+    c=0
+    mw=w[0]+4
+    for weight in w:
+        if weight<=mw:
+            continue
+        c+=1
+        mw=weight+4
+    c+=1
+    return c
+    
