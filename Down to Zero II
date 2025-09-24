@@ -1,0 +1,23 @@
+def downToZero(n):
+   
+    from math import sqrt
+    from collections import deque
+    m=set()
+    c=0
+    q=deque([[n,c]])
+    while q:
+        n,c=q.popleft()
+        if n<=1:
+            if n==1:
+                c +=1
+            break
+        if n-1 not in m:
+            m.add(n-1)
+            q.append([n-1,c+1])
+        for i in range(int(sqrt(n)),1,-1):
+            if n%i == 0:
+                factor = max(n//i,i)
+                if factor not in m:
+                    m.add(factor)
+                    q.append([factor,c+1])
+    return c                                
