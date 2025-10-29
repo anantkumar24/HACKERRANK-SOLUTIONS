@@ -1,0 +1,18 @@
+int pairs(int k, vector<int> arr) {
+    unordered_set<int> elements;
+    int count = 0;
+
+    // Insert all elements into the set
+    for (int num : arr) {
+        elements.insert(num);
+    }
+
+    // Check for each element if (element + k) exists
+    for (int num : arr) {
+        if (elements.count(num + k)) {
+            count++;
+        }
+    }
+
+    return count;
+}
